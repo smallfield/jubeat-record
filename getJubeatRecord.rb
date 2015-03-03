@@ -64,4 +64,4 @@ flag = true
 }
 
 # save cookie for next time.
-agent.cookie_jar.save_as('./' + digest + '.yml')
+agent.cookie_jar.save_as(File.expand_path("../#{digest}.yml", __FILE__))
