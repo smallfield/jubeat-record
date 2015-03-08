@@ -4,7 +4,6 @@ require_relative 'JubeatBase.rb'
 
 class JubeatSongDataFetcher < JubeatBase
 	def addDb id, name, artist, bsc, adv, ext
-		@db = SQLite3::Database.new("score.db")
 		if(@db.get_first_value('SELECT COUNT(*) FROM SONGS WHERE ID = ?', id) == 0)
 			@db.execute("INSERT INTO songs values (?, ?, ?)", id, name, artist)
 			@db.execute("INSERT INTO song_details VALUES (?, ?, ?)", id, NUM_BSC, bsc)

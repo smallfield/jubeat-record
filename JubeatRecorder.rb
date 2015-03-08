@@ -4,7 +4,6 @@ require_relative 'JubeatBase.rb'
 
 class JubeatRecorder < JubeatBase
 	def addDb user, date, title, location, game_center, level, score, rank
-		@db = SQLite3::Database.new("score.db")
 		if(@db.get_first_value('SELECT COUNT(*) FROM SCORE WHERE DATE=?', date) == 0)
 			@db.execute("INSERT INTO SCORE VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
 				   user, date, title, location, game_center, level, score, rank)

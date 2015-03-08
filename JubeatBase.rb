@@ -47,7 +47,7 @@ class JubeatBase
 	end
 
 	def initDb
-		@db = SQLite3::Database.new("score.db")
+		@db = SQLite3::Database.new("#{File.expand_path("../data.db", __FILE__)}")
 		init_sql = <<SQL
 CREATE TABLE IF NOT EXISTS score (
 user varchar(255),
